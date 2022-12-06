@@ -12,10 +12,13 @@ router.post('/notes/new-note', isAuthenticated, async (req, res) => {
     const { title, subtitle, description} = req.body;
     const errors = [];
     if (!title) {
-        errors.push({text: 'Please Write a Title'});
+        errors.push({text: 'Por favor escribe un Titulo'});
+    }
+    if (!subtitle){
+        errors.push({text: 'Por favor escribe un Sub Titulo'})
     }
     if (!description) {
-        errors.push({text: 'Please Write a Description'});
+        errors.push({text: 'Por favor escribe una Descripción'});
     }
     if (errors.length > 0) {
         res.render('notes/new-note', {
